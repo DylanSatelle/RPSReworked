@@ -158,7 +158,7 @@ function updateScores () {
     console.log("reading...");
     console.log("VALUE OF Z : " + z);
     
-    if (z == 4) {
+    if (z == 5) {
         console.log("game over");
         calculateWinner();
 
@@ -169,6 +169,7 @@ function updateScores () {
 function resetGame () {
     computerScore = 0;
     humanScore = 0;
+    z=0;
     document.getElementById(runningCompscore.innerHTML = "COMPUTER SCORE : 0");
     document.getElementById(runningPlayerscore.innerHTML = "PLAYER SCORE : 0");
 
@@ -179,12 +180,17 @@ function calculateWinner () {
     if (computerScore < humanScore) {
         window.alert("HUMAN WINS");
     }
-    else if (computerScore == humanScore) {
+    else if (computerScore === humanScore) {
         window.alert("draw");
     }
-    else {
+    else if (humanScore>computerScore) {
         window.alert("PLAYER WINS!");
     }
+
+    else {
+        window.alert("error");
+    }
+
 
     resetGame();
 
